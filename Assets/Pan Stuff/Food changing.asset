@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: Food changing
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":149.1849,"y":-257.715},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-327.0,"y":-42.0},"guid":"a879ac55-7ec0-4643-9f1c-5a8a4231ea33","$version":"A","$type":"Bolt.Start","$id":"9"},{"coroutine":false,"defaultValues":{},"position":{"x":-342.0,"y":-359.0},"guid":"e9811902-070a-4fce-a843-187400d99c70","$version":"A","$type":"Bolt.Update","$id":"11"},{"defaultValues":{"duration":{"$content":15.0,"$type":"System.Single"},"unscaledTime":{"$content":false,"$type":"System.Boolean"}},"position":{"x":-85.0,"y":-42.0},"guid":"7f0e440f-544a-4f61-83e7-b5d4ec3efe9d","$version":"A","$type":"Bolt.Timer","$id":"13"},{"chainable":false,"member":{"name":"sprite","parameterTypes":null,"targetType":"UnityEngine.SpriteRenderer","targetTypeName":"UnityEngine.SpriteRenderer","$version":"A"},"defaultValues":{"target":null,"input":{"$content":0,"$type":"UnityEngine.Object"}},"position":{"x":176.0,"y":-359.0},"guid":"64f6703c-2813-4786-8074-c0a409743b58","$version":"A","$type":"Bolt.SetMember","$id":"15"},{"specifyFallback":false,"kind":"Object","defaultValues":{"name":{"$content":"Cooking
+      Done","$type":"System.String"},"object":null},"position":{"x":-168.0,"y":-254.0},"guid":"5fc8bda7-a866-4b96-b212-b312b7810266","$version":"A","$type":"Bolt.GetVariable","$id":"18"},{"defaultValues":{},"position":{"x":33.0,"y":-359.0},"guid":"cee02a27-086e-4ce0-83c5-821e37a5bef2","$version":"A","$type":"Bolt.Branch","$id":"20"},{"kind":"Object","defaultValues":{"name":{"$content":"Cooking
+      Done","$type":"System.String"},"object":null},"position":{"x":320.0,"y":-5.0},"guid":"80d83522-030e-47a3-93ce-60e19ac61f69","$version":"A","$type":"Bolt.SetVariable","$id":"22"},{"type":"System.Boolean","value":{"$content":true,"$type":"System.Boolean"},"defaultValues":{},"position":{"x":191.0,"y":60.0},"guid":"0c975998-e413-4d05-88f8-f54e41b41120","$version":"A","$type":"Bolt.Literal","$id":"24"},{"sourceUnit":{"$ref":"9"},"sourceKey":"trigger","destinationUnit":{"$ref":"13"},"destinationKey":"start","guid":"ce612147-b46f-411e-a01c-a3160ac8be97","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"20"},"sourceKey":"ifTrue","destinationUnit":{"$ref":"15"},"destinationKey":"assign","guid":"e64a00b3-7daf-4317-9bec-5456722ac64e","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"11"},"sourceKey":"trigger","destinationUnit":{"$ref":"20"},"destinationKey":"enter","guid":"966fcfe5-65ca-480f-a5e1-d265396b690b","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"13"},"sourceKey":"completed","destinationUnit":{"$ref":"22"},"destinationKey":"assign","guid":"ed2efa98-9833-4917-a97e-12b2b5ed6e64","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"18"},"sourceKey":"value","destinationUnit":{"$ref":"20"},"destinationKey":"condition","guid":"69f3dc83-b2d8-48b1-962e-32965abb8fc6","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"24"},"sourceKey":"output","destinationUnit":{"$ref":"22"},"destinationKey":"input","guid":"5eb8370f-8f0a-4872-a06a-3f8f1357adc1","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 21300000, guid: 9cc720bd3ecd0e4419b6eef21cf4ec51, type: 3}
