@@ -6,7 +6,7 @@ public class Sliceable : MonoBehaviour
 {
     public List<GameObject> pieces;
     private bool[] sliced;
-    private void Start()
+    private void Awake()
     {
         sliced = new bool[pieces.Count];
         for (int i = 0; i < sliced.Length; i++)
