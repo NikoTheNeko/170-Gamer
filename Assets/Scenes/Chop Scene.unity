@@ -310,6 +310,10 @@ PrefabInstance:
       propertyPath: errorOffset
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4309280771020157865, guid: f300d39bc21ff304490c0b3a92058407, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8409477951307260723, guid: f300d39bc21ff304490c0b3a92058407, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -367,6 +371,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7002527018046767976, guid: 0ac95d13853fac740b7c033dee233e6f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7002527018046767977, guid: 0ac95d13853fac740b7c033dee233e6f, type: 3}
       propertyPath: m_Name
       value: cutLinePf
