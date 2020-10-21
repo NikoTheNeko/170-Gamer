@@ -10,7 +10,7 @@ public class Knife : MonoBehaviour
     public Sliceable target;
     public float errorOffset = 0.05f;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         cutLine.transform.position = target.GetNextSlicePos();
     }
