@@ -454,7 +454,7 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"collection":{"$content":[{"name":"Camera Offset","value":{"x":0.0,"y":0.0,"z":-1.0,"$type":"UnityEngine.Vector3"},"$version":"A"},{"name":"Target
       to Follow","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"Smooth
-      Speed","value":{"$content":0.001,"$type":"System.Single"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+      Speed","value":{"$content":0.1,"$type":"System.Single"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
     - {fileID: 139172609}
 --- !u!1 &505013532

@@ -909,78 +909,85 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2264697695020543442, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2187638749940583732, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 657a223dc316deb4e8d42140f932a80b, type: 3}
+    - target: {fileID: 2187638749940583732, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187638749940583732, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187638749940583732, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
+      propertyPath: Mute
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264697695020543440, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264697695020543442, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: m_Name
       value: El Pan (not bread)
       objectReference: {fileID: 0}
-    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: m_LocalPosition.x
       value: -40.06
       objectReference: {fileID: 0}
-    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: m_LocalPosition.y
       value: -10.13
       objectReference: {fileID: 0}
-    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2264697695020543444, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2264697695020543445, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2264697695020543445, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: _data._objectReferences.Array.data[0]
       value: 
       objectReference: {fileID: 437534723}
-    - target: {fileID: 2264697695020543445, guid: 7557da817c30a074fadb8ff2ed5e9418,
-        type: 3}
+    - target: {fileID: 2264697695020543445, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: _data._json
       value: '{"declarations":{"collection":{"$content":[{"name":"PanShakeSpeed","value":{"$content":5,"$type":"System.Int32"},"$version":"A"},{"name":"Pan
         State","value":{"$content":"Empty","$type":"System.String"},"$version":"A"},{"name":"Instructions","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"Food
         1","value":null,"$version":"A"},{"name":"Food 2","value":null,"$version":"A"},{"name":"Food
         3","value":null,"$version":"A"},{"name":"Food 4","value":null,"$version":"A"}],"$version":"A"},"$version":"A"}}'
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2264697695020543446, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
