@@ -33,14 +33,14 @@ public class PotScript : MonoBehaviour
         {
             if (transform.up.y >= -0.25)
             {
-                transform.Rotate(new Vector3(0, 0, 5) * Time.deltaTime * speed);
+                transform.Rotate(new Vector3(0, 0, 2) * Time.deltaTime * speed);
             }
         }
         else
         {
             if(transform.up.y != 1)
             {
-                transform.Rotate(new Vector3(0, 0, 5) * Time.deltaTime * (-speed));
+                transform.Rotate(new Vector3(0, 0, 2) * Time.deltaTime * (-speed));
             }
         }
     }
