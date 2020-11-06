@@ -161,8 +161,8 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
-  Mute: 0
+  Loop: 1
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"declarations":{"collection":{"$content":[{"name":"PanShakeSpeed","value":{"$content":5,"$type":"System.Int32"},"$version":"A"},{"name":"Pan
+    _json: '{"declarations":{"collection":{"$content":[{"name":"PanShakeSpeed","value":{"$content":10,"$type":"System.Int32"},"$version":"A"},{"name":"Pan
       State","value":{"$content":"Empty","$type":"System.String"},"$version":"A"},{"name":"Instructions","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"Playing
       Minigame","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"},{"name":"Food","value":{"$content":1,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"Completed","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:

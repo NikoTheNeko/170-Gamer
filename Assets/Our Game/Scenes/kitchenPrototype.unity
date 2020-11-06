@@ -387,8 +387,8 @@ Transform:
   m_LocalPosition: {x: -42.404552, y: 2.166749, z: -37.8266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 913589983}
   - {fileID: 2095626144}
+  - {fileID: 913589983}
   - {fileID: 1067219551}
   m_Father: {fileID: 1407819143}
   m_RootOrder: 1
@@ -636,11 +636,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913589982}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.9, y: 89, z: 37.8266}
+  m_LocalPosition: {x: 1.9, y: 26.5, z: 37.8266}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 844519027}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &913589984
 SpriteRenderer:
@@ -973,6 +973,14 @@ PrefabInstance:
       propertyPath: _data._objectReferences.Array.data[0]
       value: 
       objectReference: {fileID: 1595418753}
+    - target: {fileID: 1940160698555539987, guid: 0a9ec0aac1af81c4fbf10e57fa187bc6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940160698555539987, guid: 0a9ec0aac1af81c4fbf10e57fa187bc6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.71
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a9ec0aac1af81c4fbf10e57fa187bc6, type: 3}
 --- !u!4 &1067219551 stripped
@@ -987,6 +995,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 931703537}
     m_Modifications:
+    - target: {fileID: 2187638749940583732, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187638749940583732, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187638749940583732, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
+      propertyPath: Mute
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2264697695020543442, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: m_Name
       value: El Pan (not bread)
@@ -1049,7 +1069,7 @@ PrefabInstance:
       objectReference: {fileID: 1064451485}
     - target: {fileID: 2264697695020543445, guid: 7557da817c30a074fadb8ff2ed5e9418, type: 3}
       propertyPath: _data._json
-      value: '{"declarations":{"collection":{"$content":[{"name":"PanShakeSpeed","value":{"$content":5,"$type":"System.Int32"},"$version":"A"},{"name":"Pan
+      value: '{"declarations":{"collection":{"$content":[{"name":"PanShakeSpeed","value":{"$content":10,"$type":"System.Int32"},"$version":"A"},{"name":"Pan
         State","value":{"$content":"Empty","$type":"System.String"},"$version":"A"},{"name":"Instructions","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"Playing
         Minigame","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"},{"name":"Completed","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
       objectReference: {fileID: 0}
@@ -1241,7 +1261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219595139}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5900002, y: 42.6, z: 0}
+  m_LocalPosition: {x: 3.5900002, y: 28.6, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 931703537}
@@ -1435,8 +1455,8 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"collection":{"$content":[{"name":"Minigame Number","value":{"$content":1,"$type":"System.Int32"},"$version":"A"},{"name":"Minigame
       Camera","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"Camera
-      Smoothening","value":{"$content":0.025,"$type":"System.Single"},"$version":"A"},{"name":"Move
-      Camera","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"},{"name":"Pan
+      Showing Minigame","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"},{"name":"Camera
+      Smoothening","value":{"$content":0.05,"$type":"System.Single"},"$version":"A"},{"name":"Pan
       Minigame Trigger","value":{"$content":1,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"Minigame
       1","value":{"$content":2,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"Minigame
       1 Camera Ready","value":{"$content":3,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"Minigame
@@ -1873,7 +1893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680259890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2395859, y: 32.86, z: 502.50977}
+  m_LocalPosition: {x: -2.2395859, y: 29.4, z: 502.50977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1407819143}
@@ -2684,11 +2704,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095626143}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -67.8, y: -80.4, z: 37.8266}
+  m_LocalPosition: {x: 1.2, y: -1, z: 37.8266}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 844519027}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2095626145
 SpriteRenderer:
