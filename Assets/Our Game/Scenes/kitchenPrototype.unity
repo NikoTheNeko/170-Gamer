@@ -1330,6 +1330,10 @@ PrefabInstance:
       value: '{"declarations":{"collection":{"$content":[{"name":"Player Speed","value":{"$content":6.0,"$type":"System.Single"},"$version":"A"},{"name":"Can
         Move","value":{"$content":true,"$type":"System.Boolean"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
       objectReference: {fileID: 0}
+    - target: {fileID: 5755260519631899813, guid: bc5993ee3d26ed94f944a407268bae62, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.39
+      objectReference: {fileID: 0}
     - target: {fileID: 6648503168908874044, guid: bc5993ee3d26ed94f944a407268bae62, type: 3}
       propertyPath: m_Name
       value: Player with Camera
@@ -1344,7 +1348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6750181864669155801, guid: bc5993ee3d26ed94f944a407268bae62, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -28.900612
+      value: -2.94
       objectReference: {fileID: 0}
     - target: {fileID: 6750181864669155801, guid: bc5993ee3d26ed94f944a407268bae62, type: 3}
       propertyPath: m_LocalRotation.x
