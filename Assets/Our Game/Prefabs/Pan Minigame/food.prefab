@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8855415119229053798}
   - component: {fileID: -7594035398681626983}
   - component: {fileID: 8747572621242206447}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: food
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,6 @@ MonoBehaviour:
   Pan: {fileID: 4708287163891336470, guid: b11cda2df4331864abfb1ac255eee64c, type: 3}
   TimeLength: 5
   CookedSprite: {fileID: 21300000, guid: 9cc720bd3ecd0e4419b6eef21cf4ec51, type: 3}
-  CookingDone: 0
 --- !u!212 &8855415119229053798
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -32,6 +32,12 @@ public class PanBehavior : MonoBehaviour
     [Tooltip("The amount of food")]
     public int AmountOfFood = 4; //The amount of food
 
+    [Header("Kitchen Controller stuff")]
+    [Tooltip("The Kitchen Controller")]
+    public GameObject KitchenController;
+    [Tooltip("This is to delay the game when it's done so the player doesn't get INSTANTLY thrown back pretty much.")]
+    public float delayTimer = 1.2f;
+
     #endregion
 
     #region Private Variables
@@ -50,7 +56,7 @@ public class PanBehavior : MonoBehaviour
         the minigame is being played, if it's not
         being played then it just can't do shit at all
     **/
-    public bool PlayingMinigame = false;
+    private bool PlayingMinigame = false;
 
     /**
         Checks if the food is completed, if it is
@@ -100,8 +106,13 @@ public class PanBehavior : MonoBehaviour
 
             //Finished, it's done
             case "Finished":
+                if(delayTimer > 0){
+                    delayTimer -= Time.deltaTime;
+                } else {
+                    KitchenController.SendMessage("MinigameCompleted");
+                    PlayingMinigame = false;
+                }
                 Instructions.text = "Shit is done! Amazing!";
-                Completed = true;
             break;
 
         }
@@ -135,8 +146,8 @@ public class PanBehavior : MonoBehaviour
                 //Creates a spawn position for the food
                 //Basically puts it in the position then
                 //Offsets it a bit
-                Vector2 SpawnPosition = rbody.position;
-                Vector2 Offset = new Vector2(0, (i/10));
+                Vector3 SpawnPosition = rbody.position;
+                Vector3 Offset = new Vector3(0, (i/10), 10);
                 SpawnPosition = SpawnPosition + Offset;
 
                 //Creates a Quarternion for rotation stuff
@@ -178,6 +189,10 @@ public class PanBehavior : MonoBehaviour
         PanState = "Finished";
     }
 
+    #endregion
+
+    #region Interacting other things
+
     /**
         Getter method for Completed
     **/
@@ -185,8 +200,14 @@ public class PanBehavior : MonoBehaviour
         return Completed;
     }
 
-    #endregion
+    /**
+        This gets called by another minigame 
+    **/
+    public void TurnOnMinigame(){
+        PlayingMinigame = true;
+    }
 
+    #endregion
 
 
 }

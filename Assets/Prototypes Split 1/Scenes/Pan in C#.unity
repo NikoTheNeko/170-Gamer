@@ -786,5 +786,9 @@ PrefabInstance:
       propertyPath: Instructions
       value: 
       objectReference: {fileID: 1726006475}
+    - target: {fileID: 4708287163891336555, guid: b11cda2df4331864abfb1ac255eee64c, type: 3}
+      propertyPath: PlayingMinigame
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b11cda2df4331864abfb1ac255eee64c, type: 3}
