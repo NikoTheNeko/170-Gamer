@@ -147,9 +147,6 @@ public class MixingBehavior : MonoBehaviour{
             //Changes state
             PotState = "Filled";
         }
-
-        Debug.Log(SoupCheck);
-
         
     }
 

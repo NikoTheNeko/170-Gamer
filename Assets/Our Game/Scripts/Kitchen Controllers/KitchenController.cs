@@ -91,7 +91,6 @@ public class KitchenController : MonoBehaviour{
     void Update(){
         IONManager();
         MinigameController();
-        Debug.Log(MinigameRecipe[MinigameStep]);
     }
 
     #region Kitchen Controller as a whole
