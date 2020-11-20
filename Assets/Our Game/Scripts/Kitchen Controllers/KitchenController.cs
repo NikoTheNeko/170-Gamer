@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KitchenController : MonoBehaviour
-{
+public class KitchenController : MonoBehaviour{
+
     #region Public Variables
 
     [Header("Camera stuff")]
@@ -94,12 +94,16 @@ public class KitchenController : MonoBehaviour
 
     private void MinigameController(){
         switch(MinigameNumber){
+
             case 1:
                 runMinigame(PanMinigame, PanMinigameHide, PanMinigameShow);
             break;
+
             case 2:
                 runMinigame(PotMinigame, PotMinigameHide, PotMinigameShow);
             break;    
+
+
         }
     }
 
