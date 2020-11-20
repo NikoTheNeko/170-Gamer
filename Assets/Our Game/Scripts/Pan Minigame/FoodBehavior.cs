@@ -31,7 +31,7 @@ public class FoodBehavior : MonoBehaviour
     // Update is called once per frame
     void Update(){
         //Has the timer running if it's velocity is more than 0
-        if(rbody.velocity.magnitude > 0)
+        if(rbody.velocity.magnitude > 8.5f)
             CookingTimer();
         //If the timer finishes, change the state
         if(TimeLength <= 0){
