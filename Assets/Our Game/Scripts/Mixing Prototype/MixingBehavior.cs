@@ -39,6 +39,8 @@ public class MixingBehavior : MonoBehaviour{
     public float delayTimer = 1.2f;
     List<string> ingredients = new List<string>(){};    //List of ingredients that need to be spawned
 
+    public Button[] buttons; //Array of buttons needed to choose ingredients
+
     #endregion
 
     #region Private Variables
@@ -87,8 +89,9 @@ public class MixingBehavior : MonoBehaviour{
         //Checks which state the pan is in and will transition from one to the other
         switch (PotState){
             case "Picking":
+                MoveButtons();
                 Time.timeScale = 0f;
-                Instructions.text = "Choose your ingredients then press Done";
+                Instructions.text = "Choose your ingredients";
             break;
             //Empty, there's nothing in the pan
             //Press space to add oil
@@ -247,7 +250,6 @@ public class MixingBehavior : MonoBehaviour{
     Removes input str if it's already been input
     */
     public void AddIngredient(string str){
-        Debug.Log(str);
         if(ingredients.Contains(str)){
             ingredients.Remove(str);
         }
@@ -263,8 +265,13 @@ public class MixingBehavior : MonoBehaviour{
     public void IngredientsChosen(){
         PotState = "Empty";
         Time.timeScale = 1f;
-        foreach(string str in ingredients){
-            Debug.Log(str);
+        
+    }
+
+    void MoveButtons(){
+        foreach(Button button in buttons){
+            Debug.Log("moving a button");
+            button.GetComponent<IngredientButtonBehavior>().MoveButtonOnScreen(900);
         }
     }
 

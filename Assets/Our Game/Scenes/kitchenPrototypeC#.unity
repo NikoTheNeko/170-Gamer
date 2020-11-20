@@ -239,7 +239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1053, y: 259}
+  m_AnchoredPosition: {x: 1533, y: 259}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &385258534
@@ -249,6 +249,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 844519027}
     m_Modifications:
+    - target: {fileID: 1651582554448804793, guid: 911065e0e9001fd42b55e91417ff9b70, type: 3}
+      propertyPath: buttons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1651582554448804793, guid: 911065e0e9001fd42b55e91417ff9b70, type: 3}
       propertyPath: Instructions
       value: 
@@ -273,6 +277,18 @@ PrefabInstance:
       propertyPath: AmountOfFood
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1651582554448804793, guid: 911065e0e9001fd42b55e91417ff9b70, type: 3}
+      propertyPath: buttons.Array.data[0]
+      value: 
+      objectReference: {fileID: 1305011693}
+    - target: {fileID: 1651582554448804793, guid: 911065e0e9001fd42b55e91417ff9b70, type: 3}
+      propertyPath: buttons.Array.data[1]
+      value: 
+      objectReference: {fileID: 703292557}
+    - target: {fileID: 1651582554448804793, guid: 911065e0e9001fd42b55e91417ff9b70, type: 3}
+      propertyPath: buttons.Array.data[2]
+      value: 
+      objectReference: {fileID: 1858724581}
     - target: {fileID: 1651582554448804795, guid: 911065e0e9001fd42b55e91417ff9b70, type: 3}
       propertyPath: m_Name
       value: Pot
