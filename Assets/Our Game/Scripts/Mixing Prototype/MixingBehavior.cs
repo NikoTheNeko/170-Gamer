@@ -25,7 +25,8 @@ public class MixingBehavior : MonoBehaviour{
     [Tooltip("The Broth of the Soup Prefab")]
     public GameObject SoupBroth; //Adds the broth
     [Tooltip("The food to be added")]
-    public GameObject Food; //The food to be added
+    public GameObject Food1; //The food to be added
+    public GameObject Food2; //The other food to be added
     [Tooltip("How long you want it to cook")]
     public float TimeLength = 5f; //Length of time for cooking
     [Tooltip("The amount of food")]
@@ -36,6 +37,7 @@ public class MixingBehavior : MonoBehaviour{
     public GameObject KitchenController;
     [Tooltip("This is to delay the game when it's done so the player doesn't get INSTANTLY thrown back pretty much.")]
     public float delayTimer = 1.2f;
+    List<string> ingredients = new List<string>(){};    //List of ingredients that need to be spawned
 
     #endregion
 
@@ -48,7 +50,7 @@ public class MixingBehavior : MonoBehaviour{
         Cooking - The pan has food and is cooking
         Finished - The pan is done
     **/
-    private string PotState = "Empty";
+    private string PotState = "Picking";
 
     /**
         Allows it so we can check the angular velocity
@@ -74,7 +76,7 @@ public class MixingBehavior : MonoBehaviour{
             RunCookingMinigame();
         } else {
             //Text is empty when you're not doing anything
-            Instructions.text = " ";
+            //Instructions.text = " ";
         }
     }
 
@@ -84,6 +86,10 @@ public class MixingBehavior : MonoBehaviour{
     private void RunCookingMinigame(){
         //Checks which state the pan is in and will transition from one to the other
         switch (PotState){
+            case "Picking":
+                Time.timeScale = 0f;
+                Instructions.text = "Choose your ingredients then press Done";
+            break;
             //Empty, there's nothing in the pan
             //Press space to add oil
             case "Empty":
@@ -124,7 +130,7 @@ public class MixingBehavior : MonoBehaviour{
         Lets player press space to add broth
     **/
     private void AddBroth(){
-         //Creates a spawn position for the food
+        //Creates a spawn position for the food
         //Basically puts it in the position then
         //Offsets it a bit
         Vector3 SpawnPosition = rbody.position;
@@ -155,21 +161,32 @@ public class MixingBehavior : MonoBehaviour{
     private void AddFood(){
         //Gets input down
         if(Input.GetButtonDown("Use")){
-            //Adds 4 pieces of food
-            for(int i = 0; i != AmountOfFood; i++){
-                //Creates a spawn position for the food
-                //Basically puts it in the position then
-                //Offsets it a bit
-                Vector3 SpawnPosition = rbody.position;
-                Vector3 Offset = new Vector3(0, (i/10), 10);
-                SpawnPosition = SpawnPosition + Offset;
+            foreach(string ingredient in ingredients){
+                //Adds 4 pieces of food
+                for(int i = 0; i != AmountOfFood; i++){
+                    //Creates a spawn position for the food
+                    //Basically puts it in the position then
+                    //Offsets it a bit
+                    Vector3 SpawnPosition = rbody.position;
+                    Vector3 Offset = new Vector3(0, (i/10), 10);
+                    SpawnPosition = SpawnPosition + Offset;
 
-                //Creates a Quarternion for rotation stuff
-                Quaternion Rotato = new Quaternion(0,0,0,0);
+                    //Creates a Quarternion for rotation stuff
+                    Quaternion Rotato = new Quaternion(0,0,0,0);
 
-                //Creates the food onto the thing
-                Object.Instantiate(Food, SpawnPosition, Rotato);
+                    //Creates the food onto the thing
+                    switch(ingredient){
+                        case "carrot":
+                            Object.Instantiate(Food1, SpawnPosition, Rotato);
+                        break;
+                        case "niko":
+                            Object.Instantiate(Food2, SpawnPosition, Rotato);
+                        break;
+                    }
+                    
+                }
             }
+            
 
             PotState = "Cooking";
         }    
@@ -222,6 +239,33 @@ public class MixingBehavior : MonoBehaviour{
     **/
     public void TurnOnMinigame(){
         PlayingMinigame = true;
+    }
+
+    /*
+    Called by ingredient buttons
+    Tells program what ingredients to add
+    Removes input str if it's already been input
+    */
+    public void AddIngredient(string str){
+        Debug.Log(str);
+        if(ingredients.Contains(str)){
+            ingredients.Remove(str);
+        }
+        else{
+            ingredients.Add(str);
+        }
+    }
+
+    /*
+    Unpauses game and changes PotState
+    Used for signaling to minigame ingredients have been picked
+    */
+    public void IngredientsChosen(){
+        PotState = "Empty";
+        Time.timeScale = 1f;
+        foreach(string str in ingredients){
+            Debug.Log(str);
+        }
     }
 
     #endregion
