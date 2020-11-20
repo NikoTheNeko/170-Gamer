@@ -10,6 +10,8 @@ public class MixingBehavior : MonoBehaviour{
     [Header("Rigidbody and Basic Stuff for Unity")]
     [Tooltip("Rigidbody of the Object")]
     public Rigidbody2D rbody; //Rigidbody of the Object
+    [Tooltip("The AudioSource of the object")]
+    public AudioSource audio;
 
     [Header("Spoon Stuff")]
     [Tooltip("Controls how fast you can stir")]
@@ -75,6 +77,7 @@ public class MixingBehavior : MonoBehaviour{
         } else {
             //Text is empty when you're not doing anything
             Instructions.text = " ";
+            TurnDownVolume();
         }
     }
 
@@ -114,6 +117,7 @@ public class MixingBehavior : MonoBehaviour{
                     PlayingMinigame = false;
                 }
                 Instructions.text = "Shit is done! Amazing!";
+                TurnDownVolume();
             break;
         }
     }
@@ -192,8 +196,11 @@ public class MixingBehavior : MonoBehaviour{
         //Sets velocity to the movement vector
         spoonbody.velocity = MovementVector;
 
+        //Audio stuff
+        MixingVolumeBehavior();
+
         //Checks the angular velocity of the slime
-        if(Mathf.Abs(SoupCheck.angularVelocity) > 0)
+        if(Mathf.Abs(SoupCheck.angularVelocity) > 100)
             CookingTimer();
 
         if(TimeLength <= 0)
@@ -214,6 +221,36 @@ public class MixingBehavior : MonoBehaviour{
     }
 
     #endregion
+
+    #region Audio Stuff
+
+    //If it's being stirred fast enough it'll make noises if not it'll shut up
+    private void MixingVolumeBehavior(){
+        //
+        if(Mathf.Abs(SoupCheck.angularVelocity) > 100)
+            TurnUpVolume();
+        else{
+            TurnDownVolume();
+        }    
+    }
+
+    private void TurnUpVolume(){
+        //If the volume is quiet turn it up a bit
+        //Using Time Delta Time
+        if(audio.volume < 1){
+            audio.volume += (0.2f * Time.deltaTime);
+        }
+    }
+
+    private void TurnDownVolume(){
+        //Mutes the audio
+        if(audio.volume > 0){
+            audio.volume -= (0.5f * Time.deltaTime);
+        }
+    }
+
+    #endregion
+
 
     #region Interacting other things
 

@@ -13,6 +13,8 @@ public class PanBehavior : MonoBehaviour
     public Rigidbody2D rbody; //Rigidbody of the Object
     [Tooltip("Sprite Renderer of the Object")]
     public SpriteRenderer sRenderer; //Sprite Renderer of the Object
+    [Tooltip("The AudioSource of the object")]
+    public AudioSource audio;
 
     [Header("Speed of the Pan")]
     [Tooltip("Controls how fast you can shake the pan")]
@@ -74,6 +76,7 @@ public class PanBehavior : MonoBehaviour
         } else {
             //Text is empty when you're not doing anything
             Instructions.text = "";
+            TurnDownVolume();
         }
 
     }
@@ -102,6 +105,7 @@ public class PanBehavior : MonoBehaviour
             case "Cooking":
                 Instructions.text = "Press up and down to shake the pan";
                 CookFood();
+                TurnUpVolume();
             break;
 
             //Finished, it's done
@@ -113,6 +117,7 @@ public class PanBehavior : MonoBehaviour
                     PlayingMinigame = false;
                 }
                 Instructions.text = "Shit is done! Amazing!";
+                TurnDownVolume();
             break;
 
         }
@@ -187,6 +192,25 @@ public class PanBehavior : MonoBehaviour
         rbody.velocity = new Vector2(0,0);
         //Changes it to be finished
         PanState = "Finished";
+    }
+
+    #endregion
+
+    #region Audio Stuff
+
+    public void TurnUpVolume(){
+        //If the volume is quiet turn it up a bit
+        //Using Time Delta Time
+        if(audio.volume < 1){
+            audio.volume += (0.2f * Time.deltaTime);
+        }
+    }
+
+    public void TurnDownVolume(){
+        //Mutes the audio
+        if(audio.volume > 0){
+            audio.volume -= (0.5f * Time.deltaTime);
+        }
     }
 
     #endregion

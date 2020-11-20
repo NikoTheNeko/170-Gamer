@@ -36,15 +36,35 @@ public class KitchenController : MonoBehaviour{
     [Tooltip("Pot Minigame Hide")]
     public Transform PotMinigameHide;
 
+    [Header("Temp Ass Shit ass Fuck")]
+    public Transform SpawnHereFood;
+    public GameObject FoodToDisplay;
+
     #endregion
 
     #region Private Variables
     
     /**
+        -1 - Completed wow amazing boss
+        0 - Nothing, waiting for recipe
         1 - Pan minigame
         2 - Pot minigame
     **/
-    private int MinigameNumber = 1;
+    private int MinigameNumber = 0;
+
+    /**
+        MinigameRecipe holds an array with
+        all of the minigames you have to play in a
+        certain order given.
+        END WITH A -1 SO THAT WAY YOU KNOW IT DONE.
+    **/
+    private int[] MinigameRecipe = {0};
+
+    /**
+        Minigame step is how you traverse the array
+        above. This number will be incremented through a function.
+    **/
+    private int MinigameStep = 0;
 
     //Minigame triggers
     private bool trigger = false;
@@ -71,6 +91,7 @@ public class KitchenController : MonoBehaviour{
     void Update(){
         IONManager();
         MinigameController();
+        Debug.Log(MinigameRecipe[MinigameStep]);
     }
 
     #region Kitchen Controller as a whole
@@ -79,6 +100,18 @@ public class KitchenController : MonoBehaviour{
     //to be shown
     private void IONManager(){
         switch(MinigameNumber){
+            //Completion
+            case -1:
+                PanMinigameTrigger.SendMessage("ToggleDisplayOff");
+                PotMinigameTrigger.SendMessage("ToggleDisplayOff");
+                GameObject.Instantiate(FoodToDisplay, SpawnHereFood);
+                MinigameNumber = -99;
+            break;
+            //Off
+            case 0:
+                PanMinigameTrigger.SendMessage("ToggleDisplayOff");
+                PotMinigameTrigger.SendMessage("ToggleDisplayOff");
+            break;
             //Pan minigame
             case 1:
                 PanMinigameTrigger.SendMessage("ToggleDisplayOn");
@@ -161,7 +194,13 @@ public class KitchenController : MonoBehaviour{
     private void TransitionsMinigameButSlowly(){
         //delays the inevitable
         if(delayTimer()){
-            MinigameNumber += 1;
+            //If you're not at the max at the minigame recipe
+            //array, increment one then transition everything
+            if(MinigameStep < MinigameRecipe.Length)
+                MinigameStep += 1;
+            //Sets the current cell of the minigame recipe array
+            //To the current minigame number
+            MinigameNumber = MinigameRecipe[MinigameStep];
             timeRemaining = delay;
             TransitionBack = false;
             player.SendMessage("SetCanMove", true);
@@ -233,6 +272,19 @@ public class KitchenController : MonoBehaviour{
         if(trigger){
             minigame.SendMessage("TurnOnMinigame");
             trigger = false;
+        }
+    }
+
+    /**
+        This basically starts the minigames. Call it
+        with an array with the recipe list and then it'll
+        start the cooking yes I do the cleaning
+    **/
+    public void StartCooking(int[] RecipeArray){
+        if(MinigameNumber == 0){
+            MinigameRecipe = RecipeArray;
+            MinigameNumber = MinigameRecipe[0];
+            MinigameStep = 0;
         }
     }
 
