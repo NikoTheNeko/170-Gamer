@@ -30,9 +30,8 @@ public class MinigameStarter : MonoBehaviour{
     private void MeDoCookNow(){
         if(trigger.IsTouching(playerCollider)){
             if(Input.GetButtonDown("Use")){
-                int[] tempRecipe = {1, 2, -1};
+                int[] tempRecipe = {2, -1};
                 KitchenController.SendMessage("StartCooking", tempRecipe);
-                Debug.Log("Yes I do the cooking");
             }
         }
     }
