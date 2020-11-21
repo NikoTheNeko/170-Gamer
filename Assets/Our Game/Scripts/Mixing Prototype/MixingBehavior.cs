@@ -271,7 +271,7 @@ public class MixingBehavior : MonoBehaviour{
     void MoveButtons(){
         foreach(Button button in buttons){
             Debug.Log("moving a button");
-            button.GetComponent<IngredientButtonBehavior>().MoveButtonOnScreen(900);
+            button.GetComponent<IngredientButtonBehavior>().MoveButtonOnScreen(850);
         }
     }
 

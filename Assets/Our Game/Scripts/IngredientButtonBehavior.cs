@@ -7,6 +7,7 @@ public class IngredientButtonBehavior : MonoBehaviour
 {
     bool move = false;
     bool moveleft = true;
+    bool grayed = false;
     int x = 0;
     public Button self;
     // Start is called before the first frame update
@@ -52,6 +53,16 @@ public class IngredientButtonBehavior : MonoBehaviour
         x = temp;
         move = true;
         moveleft = true;
+    }
+    public void ColorChange(){
+        if(grayed){
+            GetComponent<Image>().color = new Color32(255,255,255,255);
+            grayed = false;
+        }
+        else{
+            GetComponent<Image>().color = new Color32(118,118,118,255);
+            grayed = true;
+        }
     }
 
 }
