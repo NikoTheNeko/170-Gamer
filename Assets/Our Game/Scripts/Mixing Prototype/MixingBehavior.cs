@@ -88,6 +88,8 @@ public class MixingBehavior : MonoBehaviour{
     private void RunCookingMinigame(){
         //Checks which state the pan is in and will transition from one to the other
         switch (PotState){
+            //State for picking ingredients
+            //Pauses time and moves UI buttons onto screen
             case "Picking":
                 MoveButtons();
                 Time.timeScale = 0f;
@@ -268,6 +270,11 @@ public class MixingBehavior : MonoBehaviour{
         
     }
 
+    /*
+    Moves given UI buttons on screen
+    Calls MoveButtonOnScreen function of script attached to given buttons
+    ANY BUTTONS THAT ARE USED FOR UI NEED IngredientButtonBehavior.cs
+    */
     void MoveButtons(){
         foreach(Button button in buttons){
             Debug.Log("moving a button");

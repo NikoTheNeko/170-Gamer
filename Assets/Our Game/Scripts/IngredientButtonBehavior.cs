@@ -20,6 +20,8 @@ public class IngredientButtonBehavior : MonoBehaviour
     void Update()
     {
         Vector3 pos = GetComponent<Transform>().position;
+
+        //Script for moving the attached button
         if(move){
             if(!moveleft && pos.x < x){
                 Debug.Log("Adding");
@@ -35,11 +37,8 @@ public class IngredientButtonBehavior : MonoBehaviour
     }
 
     /*
-    Increments x var of given Vector3, meant for moving buttons on/off screen
-    moveOnScreen dictates direction object moves
-        False = moving right
-        True = moving left
-    Need to reassign pos to target GameObject transform later
+    Tells script to move button off screen
+    I'm assuming left is off screen right now    
     */
     public void MoveButtonOffScreen(int temp){
         x = temp;
@@ -48,12 +47,21 @@ public class IngredientButtonBehavior : MonoBehaviour
         moveleft = false;
     }
 
+    /*
+    Moves buttons on screen
+    Also assuming right is on screen
+    */
     public void MoveButtonOnScreen(int temp){
         Debug.Log("called button move on screen " + temp);
         x = temp;
         move = true;
         moveleft = true;
     }
+
+    /*
+    Changes color of button from white to grey, or vice versa
+    Indicates to player what ingredients have been added
+    */
     public void ColorChange(){
         if(grayed){
             GetComponent<Image>().color = new Color32(255,255,255,255);
