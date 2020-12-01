@@ -105,11 +105,13 @@ MonoBehaviour:
   spoonbody: {fileID: 1651582555529313560}
   Instructions: {fileID: 0}
   SoupBroth: {fileID: 5115896091734362677, guid: ecb7a4032253df445979a9f7be1fb09c, type: 3}
-  Food: {fileID: 871791089993084949, guid: 62fd3bdf79d0e1e468b8cd820ff09553, type: 3}
-  TimeLength: 5
+  Food1: {fileID: 0}
+  Food2: {fileID: 0}
+  TimeLength: 3
   AmountOfFood: 10
   KitchenController: {fileID: 0}
   delayTimer: 1.2
+  buttons: []
 --- !u!68 &1651582554448804792
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -404,8 +406,10 @@ MonoBehaviour:
   spoonbody: {fileID: 0}
   Instructions: {fileID: 0}
   SoupBroth: {fileID: 0}
-  Food: {fileID: 0}
+  Food1: {fileID: 0}
+  Food2: {fileID: 0}
   TimeLength: 5
   AmountOfFood: 10
   KitchenController: {fileID: 0}
   delayTimer: 1.2
+  buttons: []

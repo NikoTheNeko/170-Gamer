@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MixingBehavior : MonoBehaviour{
+public class PotBehavior : MonoBehaviour{
     #region Public Variables
 
     //Public References
@@ -99,13 +99,13 @@ public class MixingBehavior : MonoBehaviour{
                 Instructions.text = "Choose your ingredients";
             break;
             //Empty, there's nothing in the pan
-            //Press space to add oil
+            //Press space to add broth
             case "Empty":
                 AddBroth();
                 Instructions.text = "Press Space to Add Slime Broth";
             break;
 
-            //Oiled, it's Filled
+            //Once broth is added it's filled
             //Press Space to add food
             case "Filled":
                 AddFood();
