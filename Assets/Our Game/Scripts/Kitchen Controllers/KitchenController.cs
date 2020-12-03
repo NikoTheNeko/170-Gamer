@@ -36,6 +36,16 @@ public class KitchenController : MonoBehaviour{
     [Tooltip("Pot Minigame Hide")]
     public Transform PotMinigameHide;
 
+    [Header("Minigame 3")]
+    [Tooltip("The trigger for the pot minigame")]
+    public GameObject MixingBowlMinigameTrigger;
+    [Tooltip("The MixingBowl Minigame itself")]
+    public GameObject MixingBowlMinigame;
+    [Tooltip("MixingBowl Minigame Show")]
+    public Transform MixingBowlMinigameShow;
+    [Tooltip("Pot Minigame Hide")]
+    public Transform MixingBowlMinigameHide;
+
     [Header("Temp Ass Shit ass Fuck")]
     public Transform SpawnHereFood;
     public GameObject FoodToDisplay;
@@ -49,6 +59,7 @@ public class KitchenController : MonoBehaviour{
         0 - Nothing, waiting for recipe
         1 - Pan minigame
         2 - Pot minigame
+        3 - Mixing Bowl minigame
     **/
     private int MinigameNumber = 0;
 
@@ -110,16 +121,26 @@ public class KitchenController : MonoBehaviour{
             case 0:
                 PanMinigameTrigger.SendMessage("ToggleDisplayOff");
                 PotMinigameTrigger.SendMessage("ToggleDisplayOff");
+                MixingBowlMinigameTrigger.SendMessage("ToggleDisplayOff");
             break;
             //Pan minigame
             case 1:
                 PanMinigameTrigger.SendMessage("ToggleDisplayOn");
                 PotMinigameTrigger.SendMessage("ToggleDisplayOff");
+                MixingBowlMinigameTrigger.SendMessage("ToggleDisplayOff");
+
             break;
             //Pot minigame
             case 2:
                 PanMinigameTrigger.SendMessage("ToggleDisplayOff");
                 PotMinigameTrigger.SendMessage("ToggleDisplayOn");
+                MixingBowlMinigameTrigger.SendMessage("ToggleDisplayOff");
+            break;
+            //Mixing Bowl Minigame
+            case 3:
+                PanMinigameTrigger.SendMessage("ToggleDisplayOff");
+                PotMinigameTrigger.SendMessage("ToggleDisplayOff");
+                MixingBowlMinigameTrigger.SendMessage("ToggleDisplayOn");
             break;
         }
     }
@@ -135,6 +156,9 @@ public class KitchenController : MonoBehaviour{
                 runMinigame(PotMinigame, PotMinigameHide, PotMinigameShow);
             break;    
 
+            case 3:
+                runMinigame(MixingBowlMinigame, MixingBowlMinigameHide, MixingBowlMinigameShow);
+            break;
 
         }
     }

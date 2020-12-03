@@ -68,7 +68,7 @@ public class MixingBowlBehavior : MonoBehaviour
         the minigame is being played, if it's not
         being played then it just can't do shit at all
     **/
-    private bool PlayingMinigame = true;
+    private bool PlayingMinigame = false;
 
     
 
