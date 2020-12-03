@@ -60,6 +60,8 @@ public class KitchenController : MonoBehaviour{
         1 - Pan minigame
         2 - Pot minigame
         3 - Mixing Bowl minigame
+        4 - Knife Minigame
+        5 - Assembly Minigame
     **/
     private int MinigameNumber = 0;
 
