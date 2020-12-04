@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MixingBowlBehavior : MonoBehaviour
-{
-   #region Public Variables
+public class MixingBowlBehavior : MonoBehaviour{
+    #region Public Variables
 
     //Public References
     [Header("Rigidbody and Basic Stuff for Unity")]
@@ -248,7 +247,6 @@ public class MixingBowlBehavior : MonoBehaviour
 
     #endregion
 
-
     #region Interacting other things
 
     /**
@@ -295,6 +293,5 @@ public class MixingBowlBehavior : MonoBehaviour
     }
 
     #endregion
-
 
 }
