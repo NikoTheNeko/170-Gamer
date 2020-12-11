@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7246418526422243007
+--- !u!1 &1944368827759070737
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,36 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4115761741310223406}
-  - component: {fileID: 4439738111437862824}
+  - component: {fileID: 2155808289399167127}
+  - component: {fileID: 6416671779667478858}
   m_Layer: 8
-  m_Name: Soup
+  m_Name: le festin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4115761741310223406
+--- !u!4 &2155808289399167127
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7246418526422243007}
+  m_GameObject: {fileID: 1944368827759070737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.53, y: -11.45, z: 0}
-  m_LocalScale: {x: 4.0866, y: 4.0866, z: 4.0866}
+  m_LocalPosition: {x: 35.37, y: -11.13, z: 0}
+  m_LocalScale: {x: 1.6889, y: 1.6889, z: 1.6889}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4439738111437862824
+--- !u!212 &6416671779667478858
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7246418526422243007}
+  m_GameObject: {fileID: 1944368827759070737}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -71,12 +71,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 37c46072c7a130241a974ca5623f181e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41c46710c6acf5940b9b20231885ff96, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.06, y: 3.52}
+  m_Size: {x: 5.83, y: 7.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

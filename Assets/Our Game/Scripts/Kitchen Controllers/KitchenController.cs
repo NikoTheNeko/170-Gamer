@@ -64,14 +64,47 @@ public class KitchenController : MonoBehaviour{
     public Transform BurgerMinigameHide;
     #endregion
 
+    #region Minigame Selection
+    [Header("Minigame Selection items")]
+    [Tooltip("An array of all the foods you can display")]
+
+    public GameObject[] FoodToDisplay;
+    [Tooltip("This is the UI for the recipe selection")]
+    public Transform RecipeUI;
+
+    #endregion
 
     [Header("Temp Ass Shit ass Fuck")]
     public Transform SpawnHereFood;
-    public GameObject FoodToDisplay;
 
     #endregion
 
     #region Private Variables
+    /** The recipe that will be shown at the end
+        0 - nothing
+        1 - Soup
+        2 - Burger
+        3 - Bread
+    **/
+    private int RecipeNumber = 0;
+
+    /**This holds the recipes for the recipes above
+        0 - empty
+        1 - {2, -1}
+        2 - {1, 5, -1}
+        3 - {3, -1}
+    **/
+    private int[][] RecipeArrays = new int[][]{
+        new int[] {0},
+        new int[] {2, -1},
+        new int[] {1, 5, -1},
+        new int[] {3, -1}
+    };
+
+    /**
+        Controls the Recipe Selection to show the thing
+    **/
+    private bool ShowRecipes = false;
     
     /**
         -1 - Completed wow amazing boss
@@ -123,6 +156,7 @@ public class KitchenController : MonoBehaviour{
     void Update(){
         IONManager();
         MinigameController();
+        ShowRecipeUI();
     }
 
     #region Kitchen Controller as a whole
@@ -137,7 +171,7 @@ public class KitchenController : MonoBehaviour{
                 PotMinigameTrigger.SendMessage("ToggleDisplayOff");
                 MixingBowlMinigameTrigger.SendMessage("ToggleDisplayOff");
                 BurgerMinigameTrigger.SendMessage("ToggleDisplayOff");
-                GameObject.Instantiate(FoodToDisplay, SpawnHereFood);
+                GameObject.Instantiate(FoodToDisplay[RecipeNumber], SpawnHereFood);
                 MinigameNumber = -99;
             break;
             //Off
@@ -182,7 +216,6 @@ public class KitchenController : MonoBehaviour{
 
     private void MinigameController(){
         switch(MinigameNumber){
-
             case 1:
                 runMinigame(PanMinigame, PanMinigameHide, PanMinigameShow);
             break;
@@ -285,6 +318,56 @@ public class KitchenController : MonoBehaviour{
 
     #endregion
 
+    #region Recipe Selection
+
+    /**
+        This basically starts the minigames. Call it
+        with the corresponding recipe number and it'll
+        handle the rest
+    **/
+    public void StartCooking(int Recipe){
+        if(ShowRecipes){
+            RecipeNumber = Recipe;
+            player.SendMessage("SetCanMove", true);
+            if(MinigameNumber == 0){
+                MinigameRecipe = RecipeArrays[Recipe];
+                MinigameNumber = MinigameRecipe[0];
+                MinigameStep = 0;
+            }
+            ShowRecipes = false;
+        }
+    }
+
+    /**
+        Stops player from moving and sets show recipes to true
+    **/
+    public void SelectRecipe(){
+        //Stopst he player from moving
+        player.SendMessage("SetCanMove", false);
+        ShowRecipes = true;
+    }
+
+    /**
+        This shows the Ui layer on screen
+    **/
+    private void ShowRecipeUI(){
+        //If show recipes is true, show the recipes
+        //Else, then hide
+        //Does a basic LERP
+        if(ShowRecipes){
+            Vector2 showLocation = new Vector2(390,225);
+            Vector2 newPos = Vector2.Lerp(RecipeUI.position, showLocation, SmoothSpeed);
+            RecipeUI.position = newPos;
+        } else {
+            Vector2 hideLocation = new Vector2(390,550);
+            Vector2 newPos = Vector2.Lerp(RecipeUI.position, hideLocation, SmoothSpeed);
+            RecipeUI.position = newPos; 
+        }
+    }
+
+
+    #endregion
+
     #region Camera Movement
 
     /**
@@ -337,21 +420,6 @@ public class KitchenController : MonoBehaviour{
         }
     }
 
-    /**
-        This basically starts the minigames. Call it
-        with an array with the recipe list and then it'll
-        start the cooking yes I do the cleaning
-    **/
-    public void StartCooking(int[] RecipeArray){
-        if(MinigameNumber == 0){
-            MinigameRecipe = RecipeArray;
-            MinigameNumber = MinigameRecipe[0];
-            MinigameStep = 0;
-        }
-    }
-
     #endregion
-
-
 
 }

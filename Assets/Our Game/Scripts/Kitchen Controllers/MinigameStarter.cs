@@ -16,8 +16,6 @@ public class MinigameStarter : MonoBehaviour{
     [Tooltip("This is the kitchen controller")]
     public GameObject KitchenController;
 
-    public int[] recipe;
-
     #endregion
 
     // Update is called once per frame
@@ -32,7 +30,7 @@ public class MinigameStarter : MonoBehaviour{
     private void MeDoCookNow(){
         if(trigger.IsTouching(playerCollider)){
             if(Input.GetButtonDown("Use")){
-                KitchenController.SendMessage("StartCooking", recipe);
+                KitchenController.SendMessage("SelectRecipe");
             }
         }
     }
