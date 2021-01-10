@@ -3300,7 +3300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1100}
+  m_AnchoredPosition: {x: 0, y: 907}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1173060461
@@ -8543,6 +8543,8 @@ MonoBehaviour:
   - {fileID: 1944368827759070737, guid: 96423c02aebb56742a79729c54852936, type: 3}
   RecipeUI: {fileID: 1126453285}
   SpawnHereFood: {fileID: 532653462}
+  showLocation: {x: 553, y: 159}
+  hideLocation: {x: 553, y: 663}
 --- !u!1 &1410367128
 GameObject:
   m_ObjectHideFlags: 0
@@ -10382,7 +10384,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 2560, y: 1080}
-  m_ScreenMatchMode: 1
+  m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96

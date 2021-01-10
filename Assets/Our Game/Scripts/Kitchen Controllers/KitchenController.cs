@@ -76,6 +76,9 @@ public class KitchenController : MonoBehaviour{
 
     [Header("Temp Ass Shit ass Fuck")]
     public Transform SpawnHereFood;
+    public Vector2 showLocation = new Vector2(390,225);
+    public Vector2 hideLocation = new Vector2(390, 550);
+
 
     #endregion
 
@@ -355,11 +358,9 @@ public class KitchenController : MonoBehaviour{
         //Else, then hide
         //Does a basic LERP
         if(ShowRecipes){
-            Vector2 showLocation = new Vector2(390,225);
             Vector2 newPos = Vector2.Lerp(RecipeUI.position, showLocation, SmoothSpeed);
             RecipeUI.position = newPos;
         } else {
-            Vector2 hideLocation = new Vector2(390,550);
             Vector2 newPos = Vector2.Lerp(RecipeUI.position, hideLocation, SmoothSpeed);
             RecipeUI.position = newPos; 
         }
