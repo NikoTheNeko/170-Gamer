@@ -29,6 +29,10 @@ public class PlayerCombatTesting : MonoBehaviour{
     #region Private Varirables
     public bool CanMove = true;
     private List<GameObject> shotList;
+    private int weaponSelect = 1;
+                //weapon select 1: Knife
+                //              2: Flambethrower
+                //              3: Pepper shotgun
 
     #endregion
     private void Start()
@@ -47,11 +51,35 @@ public class PlayerCombatTesting : MonoBehaviour{
         CheckAttack();
         if (Input.GetButtonDown("Fire1"))
         {
-            weaponOnePrimaryFire();
+            switch (weaponSelect) {
+                case 1:
+                    weaponOne();
+                    break;
+                case 2:
+                    weaponTwo();
+                    break;
+                case 3:
+                    weaponThree();
+                    break;
+            }
         }
-        if (Input.GetButtonDown("Fire2"))
+        if(Input.mouseScrollDelta.y > 0)
         {
-            weaponOneSecondaryFire();
+            weaponSelect++;
+            if(weaponSelect > 3)
+            {
+                weaponSelect = 1;
+            }
+            weaponSwitch(weaponSelect);
+        }
+        else if(Input.mouseScrollDelta.y < 0)
+        {
+            weaponSelect--;
+            if (weaponSelect < 1)
+            {
+                weaponSelect = 3;
+            }
+            weaponSwitch(weaponSelect);
         }
     }
 
@@ -99,14 +127,26 @@ public class PlayerCombatTesting : MonoBehaviour{
         }*/
         crosshair.GetComponent<Rigidbody2D>().velocity = crosshairVel * 10;
     }
-    void weaponOnePrimaryFire()
+
+    void weaponSwitch(int weaponSelect)
+    {
+
+    }
+    void weaponOne()
     {
         GameObject newShot = Instantiate(airSlash, transform.forward, Quaternion.identity);
         newShot.name = (string.Format("Shot [0])", shotList.Count));
         shotList.Add(newShot);
     }
 
-    void weaponOneSecondaryFire()
+    void weaponTwo()
+    {
+        GameObject newShot = Instantiate(airBullet, transform.forward, Quaternion.identity);
+        newShot.name = (string.Format("Shot [0])", shotList.Count));
+        shotList.Add(newShot);
+    }
+
+    void weaponThree()
     {
         GameObject newShot = Instantiate(airBullet, transform.forward, Quaternion.identity);
         newShot.name = (string.Format("Shot [0])", shotList.Count));
