@@ -15,16 +15,26 @@ public class PlayerCombatTesting : MonoBehaviour{
     public int PlayerSpeed = 5;
 
     [Header("Combat Stuff")]
+    [Tooltip("crosshair")]
+    public GameObject crosshair;
     [Tooltip("This is the hit box thing")]
     public GameObject hitbox;
+    [Tooltip("Air bullet")]
+    public GameObject airBullet;
+    [Tooltip("Air slash")]
+    public GameObject airSlash;
 
     #endregion
 
     #region Private Varirables
     public bool CanMove = true;
+    private List<GameObject> shotList;
 
     #endregion
-
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     // Update is called once per frame
     void Update(){
         if(CanMove){
@@ -35,6 +45,72 @@ public class PlayerCombatTesting : MonoBehaviour{
         }
 
         CheckAttack();
+        if (Input.GetButtonDown("Fire1"))
+        {
+            weaponOnePrimaryFire();
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            weaponOneSecondaryFire();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        updateCrosshair();
+    }
+
+    void updateCrosshair()
+    {
+        if (crosshair.transform.localPosition.magnitude >= 5)
+        {
+            crosshair.transform.localPosition = crosshair.transform.localPosition.normalized * 5;
+            crosshair.GetComponent<Rigidbody2D>().velocity = transform.gameObject.GetComponent<Rigidbody2D>().velocity;
+        }
+        Vector2 crosshairVel = transform.gameObject.GetComponent<Rigidbody2D>().velocity + new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        crosshairVel.Normalize();
+        /* (Physics2D.Raycast(transform.position, Vector3.up, 0.1f))
+        {
+            if(crosshairVel.y > 0)
+            {
+                crosshairVel.y = 0;
+            }
+        }
+        if (Physics2D.Raycast(transform.position, Vector3.down, 0.1f))
+        {
+            if (crosshairVel.y < 0)
+            {
+                crosshairVel.y = 0;
+            }
+        }
+        if (Physics2D.Raycast(transform.position, Vector3.right, 0.1f))
+        {
+            if (crosshairVel.x > 0)
+            {
+                crosshairVel.x = 0;
+            }
+        }
+        if (Physics2D.Raycast(transform.position, Vector3.left, 0.1f))
+        {
+            if (crosshairVel.x < 0)
+            {
+                crosshairVel.x = 0;
+            }
+        }*/
+        crosshair.GetComponent<Rigidbody2D>().velocity = crosshairVel * 10;
+    }
+    void weaponOnePrimaryFire()
+    {
+        GameObject newShot = Instantiate(airSlash, transform.forward, Quaternion.identity);
+        newShot.name = (string.Format("Shot [0])", shotList.Count));
+        shotList.Add(newShot);
+    }
+
+    void weaponOneSecondaryFire()
+    {
+        GameObject newShot = Instantiate(airBullet, transform.forward, Quaternion.identity);
+        newShot.name = (string.Format("Shot [0])", shotList.Count));
+        shotList.Add(newShot);
     }
 
     /**
