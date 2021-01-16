@@ -19,10 +19,12 @@ public class PlayerCombatTesting : MonoBehaviour{
     public GameObject crosshair;
     [Tooltip("This is the hit box thing")]
     public GameObject hitbox;
-    [Tooltip("Air bullet")]
-    public GameObject airBullet;
-    [Tooltip("Air slash")]
-    public GameObject airSlash;
+    [Tooltip("Slash")]
+    public GameObject slashBox;
+    [Tooltip("Fire Shit")]
+    public GameObject flameShit;
+    [Tooltip("Seasoning Shot")]
+    public GameObject sShot;
 
     #endregion
 
@@ -125,7 +127,7 @@ public class PlayerCombatTesting : MonoBehaviour{
                 crosshairVel.x = 0;
             }
         }*/
-        crosshair.GetComponent<Rigidbody2D>().velocity = crosshairVel * 10;
+        crosshair.GetComponent<Rigidbody2D>().velocity = crosshairVel * 5;
     }
 
     void weaponSwitch(int weaponSelect)
@@ -134,21 +136,21 @@ public class PlayerCombatTesting : MonoBehaviour{
     }
     void weaponOne()
     {
-        GameObject newShot = Instantiate(airSlash, transform.forward, Quaternion.identity);
+        GameObject newShot = Instantiate(slashBox, transform.forward, Quaternion.identity);
         newShot.name = (string.Format("Shot [0])", shotList.Count));
         shotList.Add(newShot);
     }
 
     void weaponTwo()
     {
-        GameObject newShot = Instantiate(airBullet, transform.forward, Quaternion.identity);
+        GameObject newShot = Instantiate(flameShit, transform.forward, Quaternion.identity);
         newShot.name = (string.Format("Shot [0])", shotList.Count));
         shotList.Add(newShot);
     }
 
     void weaponThree()
     {
-        GameObject newShot = Instantiate(airBullet, transform.forward, Quaternion.identity);
+        GameObject newShot = Instantiate(sShot, transform.forward, Quaternion.identity);
         newShot.name = (string.Format("Shot [0])", shotList.Count));
         shotList.Add(newShot);
     }
