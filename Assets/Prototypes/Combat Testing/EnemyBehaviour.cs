@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehavior : MonoBehaviour{
+public class EnemyBehaviour : MonoBehaviour{
 
     public Collider2D enemyHitbox;
 
