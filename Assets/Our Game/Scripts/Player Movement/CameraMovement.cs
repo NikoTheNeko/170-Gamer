@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +23,7 @@ public class CameraMovement : MonoBehaviour
     #endregion
 
     // Update is called once per frame
+    /*
     void FixedUpdate(){
         MoveCamera();
     }
@@ -34,6 +36,47 @@ public class CameraMovement : MonoBehaviour
             Vector3.Lerp(transform.position, DesiredPos, SmoothSpeed);
         //Now assigns the camera's position to the movement position
         transform.position = MovementPosition;
+
+    }
+    */
+
+    //public CameraMovement cameraFollow;
+    //public Transform playerTransform;
+    
+    private void Start()
+    {
+        Setup(() => Target.position);
+    }
+
+    private Func<Vector3> GetCameraFollowPositionFunc;
+    private Vector3 cameraFollowPosition;
+    
+    public void Setup(Func<Vector3> GetCameraFollowPositionFunc)
+    {
+        this.GetCameraFollowPositionFunc = GetCameraFollowPositionFunc;
+    }
+
+    void Update()
+    {
+        Vector3 cameraFollowPosition = GetCameraFollowPositionFunc();
+        cameraFollowPosition.z = transform.position.z;
+
+        Vector3 cameraMoveDir = (cameraFollowPosition - transform.position).normalized;
+        float distance = Vector3.Distance(cameraFollowPosition, transform.position);
+        float cameraMoveSpeed = 2.25f;
+
+        if (distance > 0)
+        {
+            Vector3 newCameraPosition = transform.position + cameraMoveDir * distance * cameraMoveSpeed * Time.deltaTime;
+            float distanceAfterMoving = Vector3.Distance(newCameraPosition, cameraFollowPosition);
+            
+            if (distanceAfterMoving > distance)
+            {
+                newCameraPosition = cameraFollowPosition;
+            }
+
+            transform.position = newCameraPosition;
+        }
 
     }
 }
