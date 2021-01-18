@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuButtonManager : MonoBehaviour
-{
+public class MainMenuButtonManager : MonoBehaviour{
 
     public void YesIDoTheCooking(){
         SceneManager.LoadScene("Kitchen but with Tilemaps", LoadSceneMode.Single);
