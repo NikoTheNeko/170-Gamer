@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     public static bool IsPaused = false;
     public static bool QuestsUp = false;
     public static bool MapUp = false;
+    public static bool isOpen = false;
 
     public GameObject pauseMenuUI;
     public GameObject questButton;
@@ -31,10 +32,12 @@ public class PauseMenu : MonoBehaviour
         {
             if (QuestsUp)
             {
-                PutDownQuests();
+                //PutDownQuests();
+                //OpenQuest();
             } else
             {
-                PullUpQuests();
+                //PullUpQuests();
+                //OpenQuest();
             }
         }
         if(Input.GetKeyDown(KeyCode.M))
