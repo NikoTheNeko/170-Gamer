@@ -131,7 +131,6 @@ public class EnemyBehaviour : MonoBehaviour{
     //generally needs unfucking
     private void checkCombat()
     {
-        Debug.Log(Vector3.Distance(transform.position, target.transform.position));
         if (Vector3.Distance(transform.position, target.transform.position) < attackRange)
         {
             enemyState = "combat";

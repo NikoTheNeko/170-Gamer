@@ -1,8 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCombatTesting : MonoBehaviour{
+
+    public event EventHandler<OnShootEventArgs> OnShoot;
+    public class OnShootEventArgs : EventArgs
+    {
+        public Vector3 gunEndPointPosition;
+        public Vector3 shootPosition;
+    }
 
     #region Public Variables
 
@@ -27,7 +35,8 @@ public class PlayerCombatTesting : MonoBehaviour{
     #region Private Varirables
     public bool CanMove = true;
     private List<GameObject> shotList;
-    private int weaponSelect = 1;
+    private Transform aimGunEndPoint;
+    private int weaponSelect = 0;
                 //weapon select 1: Knife
                 //              2: Flambethrower
                 //              3: Pepper shotgun
@@ -35,7 +44,7 @@ public class PlayerCombatTesting : MonoBehaviour{
     #endregion
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     private enum State
@@ -51,10 +60,15 @@ public class PlayerCombatTesting : MonoBehaviour{
     private float rollSpeed;
     private const float MV_SPEED = 7f;
     private State state;
+    private Transform gunAnchor;
+    private Animator shotgunAnim;
 
     private void Awake()
     {
+        gunAnchor = transform.Find("gunAnchor");
         rigidbody2D = GetComponent<Rigidbody2D>();
+        shotgunAnim = gunAnchor.Find("Shotgun").GetComponent<Animator>();
+        aimGunEndPoint = gunAnchor.Find("GunEndPoint");
         state = State.Normal;
     }
 
@@ -120,37 +134,22 @@ public class PlayerCombatTesting : MonoBehaviour{
         }
 
         CheckAttack();
-        if (Input.GetButtonDown("Fire1"))
+        UpdateWeapon();
+        if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("click");
+            weaponSelect = gunAnchor.GetComponent<weaponBehaviour>().index;
             switch (weaponSelect) {
-                case 1:
+                case 0:
                     weaponOne();
                     break;
-                case 2:
+                case 1:
                     weaponTwo();
                     break;
-                case 3:
+                case 2:
                     weaponThree();
                     break;
             }
-        }
-        if(Input.mouseScrollDelta.y > 0)
-        {
-            weaponSelect++;
-            if(weaponSelect > 3)
-            {
-                weaponSelect = 1;
-            }
-            weaponSwitch(weaponSelect);
-        }
-        else if(Input.mouseScrollDelta.y < 0)
-        {
-            weaponSelect--;
-            if (weaponSelect < 1)
-            {
-                weaponSelect = 3;
-            }
-            weaponSwitch(weaponSelect);
         }
     }
 
@@ -216,10 +215,6 @@ public class PlayerCombatTesting : MonoBehaviour{
         crosshair.GetComponent<Rigidbody2D>().velocity = crosshairVel * 5;
     }
     */
-    void weaponSwitch(int weaponSelect)
-    {
-
-    }
     void weaponOne()
     {
         GameObject newShot = Instantiate(slashBox, transform.forward, Quaternion.identity);
@@ -236,9 +231,14 @@ public class PlayerCombatTesting : MonoBehaviour{
 
     void weaponThree()
     {
-        GameObject newShot = Instantiate(sShot, transform.forward, Quaternion.identity);
-        newShot.name = (string.Format("Shot [0])", shotList.Count));
-        shotList.Add(newShot);
+        shotgunAnim.SetTrigger("Shoot");
+        OnShoot?.Invoke(this, new OnShootEventArgs
+        {
+            gunEndPointPosition = aimGunEndPoint.position,
+            shootPosition = GetMouseWorldPosition()
+        });
+        Debug.Log("boom");
+        //spawn pellets from gun end point, need to construct prefabs for projectiles
     }
 
     /**
@@ -253,12 +253,27 @@ public class PlayerCombatTesting : MonoBehaviour{
     public void SetCanMove(bool val){
         CanMove = val;
     }
+    public void UpdateWeapon()
+    {
+        Vector3 mousePosition = GetMouseWorldPosition();
+
+        Vector3 aimDirection = (mousePosition - transform.position).normalized;
+        float angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        gunAnchor.eulerAngles = new Vector3(0, 0, angle);
+    }
+
+    public static Vector3 GetMouseWorldPosition()
+    {
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        worldPosition.z = 0f;
+        return worldPosition;
+    }
 
     public void CheckAttack(){
         Quaternion rotato = new Quaternion(0,0,0,0);
         Vector3 Offset = transform.position + new Vector3(1,0,0);
         if(Input.GetButtonDown("Use")){
-            Object.Instantiate(hitbox, Offset, rotato);
+            //Object.Instantiate(hitbox, Offset, rotato);
         }
     }
 
