@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,8 +96,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac1f37dc0f97d3645b921e7dec933953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHitbox: {fileID: 2130441598346989800}
+  aiPath: {fileID: 0}
   knifeHit: {fileID: 5167000393106383809, guid: c73c21fbfae0ed34cb9fad4bb5cb69ff, type: 3}
+  target: {fileID: 0}
+  enemyGFX: {fileID: 0}
+  speed: 200
+  nextWaypointDistance: 3
+  attackRange: 0
+  seeker: {fileID: 0}
+  rb: {fileID: 0}
+  enemyState: idle
+  idleTimer: 0
+  walkTimer: 0
 --- !u!61 &2130441598346989800
 BoxCollider2D:
   m_ObjectHideFlags: 0
