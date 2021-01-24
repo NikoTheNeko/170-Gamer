@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Our Game/Scenes/CombatPrototype.unity
     guid: 50415a877c769404495f20142aed4422
+  - enabled: 1
+    path: Assets/Our Game/Scenes/TitleScreen.unity
+    guid: c1f8da59863d81b40ae9e92331aadee7
   m_configObjects: {}
