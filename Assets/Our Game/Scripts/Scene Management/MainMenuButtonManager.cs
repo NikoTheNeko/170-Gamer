@@ -14,7 +14,7 @@ public class MainMenuButtonManager : MonoBehaviour{
     }
 
     public void FlushToiletCloseGame(){
-        SceneManager.LoadScene("TitleScreen");
+        Application.Quit();
     }
 
 }
