@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
+public enum DamageEnum { Slice, Fire, Flavor }
 public class EnemyBehaviour : MonoBehaviour{
     public AIPath aiPath;
 
