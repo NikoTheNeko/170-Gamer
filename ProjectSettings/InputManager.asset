@@ -54,13 +54,13 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Fire2
+    m_Name: Left
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: left alt
+    positiveButton: left
     altNegativeButton: 
-    altPositiveButton: mouse 1
+    altPositiveButton: a
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -70,13 +70,13 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Fire3
+    m_Name: Right
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: left shift
+    positiveButton: right
     altNegativeButton: 
-    altPositiveButton: mouse 2
+    altPositiveButton: d
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
