@@ -150,8 +150,8 @@ public class TextBoxScript : MonoBehaviour
             target.transform.localScale += new Vector3(0.001f, 0.001f, 0);
         }
         target.transform.SetAsLastSibling();
-        textboxImage.transform.SetAsLastSibling();
-        
+        textboxImage.transform.parent.SetAsLastSibling(); 
+               
         target.color = temp;
     }
 
