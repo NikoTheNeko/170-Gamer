@@ -1,0 +1,224 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5755260519631899814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5755260519631899813}
+  - component: {fileID: 5755260519631899812}
+  - component: {fileID: 5755260519631899815}
+  - component: {fileID: 5755260519631899811}
+  - component: {fileID: 5755260519631899810}
+  m_Layer: 0
+  m_Name: Player Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5755260519631899813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755260519631899814}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.2826, y: 1.2826, z: 1.2826}
+  m_Children: []
+  m_Father: {fileID: 6750181864669155801}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &5755260519631899812
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755260519631899814}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 4.530115
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &5755260519631899815
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755260519631899814}
+  m_Enabled: 1
+--- !u!114 &5755260519631899811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755260519631899814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1465209106, guid: c8d0ad23af520fe46aabe2b1fecf6462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"collection":{"$content":[{"name":"Camera Offset","value":{"x":0.0,"y":0.0,"z":-1.0,"$type":"UnityEngine.Vector3"},"$version":"A"},{"name":"Target
+      to Follow","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"Smooth
+      Speed","value":{"$content":0.1,"$type":"System.Single"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 4084135729190482440}
+--- !u!114 &5755260519631899810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755260519631899814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -57143145, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 5a69d9c4100f38e448ca36c20f3b1c6c, type: 2}
+--- !u!1 &6648503168908874044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6750181864669155801}
+  m_Layer: 0
+  m_Name: Player with Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6750181864669155801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648503168908874044}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0068042874, y: 0.058331996, z: -28.900612}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5755260519631899813}
+  - {fileID: 4084135729190482930}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2889730317996569443
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6750181864669155801}
+    m_Modifications:
+    - target: {fileID: 1204609165926695057, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204609165926695057, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204609165926695057, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204609165926695057, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204609165926695057, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204609165926695057, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204609165926695057, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204609165926695057, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204609165926695057, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204609165926695057, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204609165926695057, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204609165926695275, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+      propertyPath: m_Name
+      value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1204609165926695277, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+      propertyPath: _data._json
+      value: '{"declarations":{"collection":{"$content":[{"name":"Player Speed","value":{"$content":6.0,"$type":"System.Single"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+--- !u!1 &4084135729190482440 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1204609165926695275, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+  m_PrefabInstance: {fileID: 2889730317996569443}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4084135729190482930 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1204609165926695057, guid: d7e53cd5fada8344aa19c443294cfd82, type: 3}
+  m_PrefabInstance: {fileID: 2889730317996569443}
+  m_PrefabAsset: {fileID: 0}
