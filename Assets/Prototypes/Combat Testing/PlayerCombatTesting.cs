@@ -62,12 +62,16 @@ public class PlayerCombatTesting : MonoBehaviour{
     private State state;
     private Transform gunAnchor;
     private Animator shotgunAnim;
+    private Animator knifeAnim;
+    private Animator flamethrowerAnim;
 
     private void Awake()
     {
         gunAnchor = transform.Find("gunAnchor");
         rigidbody2D = GetComponent<Rigidbody2D>();
         shotgunAnim = gunAnchor.Find("Shotgun").GetComponent<Animator>();
+        flamethrowerAnim = gunAnchor.Find("Flambethrower").GetComponent<Animator>();
+        knifeAnim = gunAnchor.Find("Knife").GetComponent<Animator>();
         aimGunEndPoint = gunAnchor.Find("GunEndPoint");
         state = State.Normal;
     }
@@ -135,22 +139,19 @@ public class PlayerCombatTesting : MonoBehaviour{
 
         CheckAttack();
         UpdateWeapon();
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("click");
-            weaponSelect = gunAnchor.GetComponent<weaponBehaviour>().index;
-            switch (weaponSelect) {
-                case 0:
-                    weaponOne();
-                    break;
-                case 1:
-                    weaponTwo();
-                    break;
-                case 2:
-                    weaponThree();
-                    break;
+        //if (Input.GetMouseButtonDown(0))
+        weaponSelect = gunAnchor.GetComponent<weaponBehaviour>().index;
+        switch (weaponSelect) {
+            case 0:
+                weaponOne();
+                break;
+            case 1:
+                weaponTwo();
+                break;
+            case 2:
+                weaponThree();
+                break;
             }
-        }
     }
 
     private void FixedUpdate()
@@ -217,27 +218,53 @@ public class PlayerCombatTesting : MonoBehaviour{
     */
     void weaponOne()
     {
-        GameObject newShot = Instantiate(slashBox, transform.forward, Quaternion.identity);
-        newShot.name = (string.Format("Shot [0])", shotList.Count));
-        shotList.Add(newShot);
+        if (Input.GetMouseButtonDown(0))
+        {
+            aimGunEndPoint = gunAnchor.Find("Knife");
+            knifeAnim.SetTrigger("Fire");
+            OnShoot?.Invoke(this, new OnShootEventArgs
+            {
+                gunEndPointPosition = aimGunEndPoint.position,
+                shootPosition = GetMouseWorldPosition()
+            });
+        }
     }
 
     void weaponTwo()
     {
-        GameObject newShot = Instantiate(flameShit, transform.forward, Quaternion.identity);
-        newShot.name = (string.Format("Shot [0])", shotList.Count));
-        shotList.Add(newShot);
+        if(Input.GetMouseButtonDown(0))
+        {
+            flamethrowerAnim.SetTrigger("Fire");
+        }
+        if(Input.GetMouseButton(0))
+        {
+            aimGunEndPoint = gunAnchor.Find("Flambethrower");
+            flamethrowerAnim.SetBool("IsFiring", true);
+            OnShoot?.Invoke(this, new OnShootEventArgs
+            {
+                gunEndPointPosition = aimGunEndPoint.position,
+                shootPosition = GetMouseWorldPosition()
+            });
+        }
+        else
+        {
+            flamethrowerAnim.SetBool("IsFiring", false);
+        }
+        //flamethrowerAnim;
     }
 
     void weaponThree()
     {
-        shotgunAnim.SetTrigger("Shoot");
-        OnShoot?.Invoke(this, new OnShootEventArgs
+        if (Input.GetMouseButtonDown(0))
         {
-            gunEndPointPosition = aimGunEndPoint.position,
-            shootPosition = GetMouseWorldPosition()
-        });
-        Debug.Log("boom");
+            aimGunEndPoint = gunAnchor.Find("Shotgun");
+            shotgunAnim.SetTrigger("Shoot");
+            OnShoot?.Invoke(this, new OnShootEventArgs
+            {
+                gunEndPointPosition = aimGunEndPoint.position,
+                shootPosition = GetMouseWorldPosition()
+            });
+        }
         //spawn pellets from gun end point, need to construct prefabs for projectiles
     }
 
