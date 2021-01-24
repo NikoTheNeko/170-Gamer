@@ -108,9 +108,9 @@ public class TextBoxScript : MonoBehaviour
         }
 
         //if the end of the dialogue has been reached add progress to NarrativeTracker and end dialogue
-        // if(loops >= dialogue.dialogueSegments.Length && dialogue.progression != "none"){
-        //     NarrativeTracker.GetComponent<NarrativeTracker>().addEntry(dialogue.target, dialogue.progression);
-        // }
+        if(loops >= dialogue.dialogueSegments.Length){
+            DeactivateObjects(););
+        }
         
     }
 
