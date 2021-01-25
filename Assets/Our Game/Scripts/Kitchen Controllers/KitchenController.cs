@@ -71,14 +71,13 @@ public class KitchenController : MonoBehaviour{
     public GameObject[] FoodToDisplay;
     [Tooltip("This is the UI for the recipe selection")]
     public Transform RecipeUI;
+    public Transform HideUI;
+    public Transform ShowUI;
 
     #endregion
 
     [Header("Temp Ass Shit ass Fuck")]
     public Transform SpawnHereFood;
-    public Vector2 showLocation = new Vector2(390,225);
-    public Vector2 hideLocation = new Vector2(390, 550);
-
 
     #endregion
 
@@ -358,10 +357,10 @@ public class KitchenController : MonoBehaviour{
         //Else, then hide
         //Does a basic LERP
         if(ShowRecipes){
-            Vector2 newPos = Vector2.Lerp(RecipeUI.position, showLocation, SmoothSpeed);
+            Vector3 newPos = Vector3.Lerp(RecipeUI.position, ShowUI.position, SmoothSpeed);
             RecipeUI.position = newPos;
         } else {
-            Vector2 newPos = Vector2.Lerp(RecipeUI.position, hideLocation, SmoothSpeed);
+            Vector3 newPos = Vector3.Lerp(RecipeUI.position, HideUI.position, SmoothSpeed);
             RecipeUI.position = newPos; 
         }
     }
