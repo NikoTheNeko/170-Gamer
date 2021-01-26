@@ -22,6 +22,10 @@ public class InventoryTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject[] search = GameObject.FindGameObjectsWithTag("InventoryTracker");
+        if(search.Length > 1){
+            Destroy(this.gameObject);
+        }
         DontDestroyOnLoad(this.gameObject);
         
     }
@@ -127,9 +131,10 @@ public class InventoryTracker : MonoBehaviour
         }
         return null;
     }
-
     
-
+    public void GoHome(){
+        SceneManager.LoadScene(0);
+    }
 }
 
 [System.Serializable]
