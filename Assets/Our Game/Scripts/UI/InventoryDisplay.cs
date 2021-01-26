@@ -14,6 +14,10 @@ public class InventoryDisplay : MonoBehaviour
     private int OffsetX = 10; //amount of leeway in x axis
     private int OffsetY = 10; //amount of leeway in y axis
     private InventoryTracker tracker;
+<<<<<<< Updated upstream
+=======
+    private bool onScreen = false;
+>>>>>>> Stashed changes
     #endregion
 
     // Start is called before the first frame update
@@ -21,6 +25,10 @@ public class InventoryDisplay : MonoBehaviour
     {
         GameObject temp = GameObject.Find("InventoryTracker");
         tracker = temp.GetComponent<InventoryTracker>();
+<<<<<<< Updated upstream
+=======
+        Debug.Log(tracker);
+>>>>>>> Stashed changes
         Debug.Log(tracker.discovered("banana"));
         foreach(Display display in ingredientDisplays){
             display.Deactivate();
@@ -32,6 +40,14 @@ public class InventoryDisplay : MonoBehaviour
     {
         displayIngredients();
         checkForMouseOver();
+<<<<<<< Updated upstream
+=======
+        move();
+        if(Input.GetKeyDown(KeyCode.I)){
+            Debug.Log("I depressed " + Time.time + " " + onScreen);
+            onScreen = !onScreen;
+        }
+>>>>>>> Stashed changes
     }
 
     //Displays all discovered ingredients on given display objects
@@ -64,7 +80,23 @@ public class InventoryDisplay : MonoBehaviour
                 Debug.Log("you moused over " + target.name.text + "!");
             }
         }
+<<<<<<< Updated upstream
        
+=======
+    }
+
+    private void move(){
+        if(onScreen){
+            if(this.gameObject.transform.position.y < 0){
+                this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y + 1, this.gameObject.transform.position.z);
+            }
+        }
+        else if(!onScreen){
+            if(this.gameObject.transform.position.y > -100){
+                this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y - 1, this.gameObject.transform.position.z);
+            }
+        }
+>>>>>>> Stashed changes
     }
 }
 

@@ -22,6 +22,13 @@ public class InventoryTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< Updated upstream:Assets/Our Game/Scripts/UI/InventoryTracker.cs
+=======
+        GameObject[] search = GameObject.FindGameObjectsWithTag("InventoryTracker");
+        if(search.Length > 1){
+            Destroy(this.gameObject);
+        }
+>>>>>>> Stashed changes:Assets/Our Game/Scripts/UI/inventory.cs
         DontDestroyOnLoad(this.gameObject);
         
     }
@@ -108,9 +115,15 @@ public class InventoryTracker : MonoBehaviour
             inventoryDict[ingredient] = 1;
         }
 
+<<<<<<< Updated upstream:Assets/Our Game/Scripts/UI/InventoryTracker.cs
         // if(ingredient == "Carrot"){
         //     SceneManager.LoadScene(2);
         // }
+=======
+        if(ingredient == "Carrot"){
+            SceneManager.LoadScene(2);
+        }
+>>>>>>> Stashed changes:Assets/Our Game/Scripts/UI/inventory.cs
     }
 
     //returns true if dictionary already has given key
@@ -127,9 +140,16 @@ public class InventoryTracker : MonoBehaviour
         }
         return null;
     }
+<<<<<<< Updated upstream:Assets/Our Game/Scripts/UI/InventoryTracker.cs
 
     
 
+=======
+    
+    public void GoHome(){
+        SceneManager.LoadScene(0);
+    }
+>>>>>>> Stashed changes:Assets/Our Game/Scripts/UI/inventory.cs
 }
 
 [System.Serializable]
