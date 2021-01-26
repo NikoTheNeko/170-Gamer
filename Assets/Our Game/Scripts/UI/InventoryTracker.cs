@@ -108,9 +108,9 @@ public class InventoryTracker : MonoBehaviour
             inventoryDict[ingredient] = 1;
         }
 
-        if(ingredient == "Carrot"){
-            SceneManager.LoadScene(2);
-        }
+        // if(ingredient == "Carrot"){
+        //     SceneManager.LoadScene(2);
+        // }
     }
 
     //returns true if dictionary already has given key
