@@ -131,7 +131,7 @@ public class TextBoxScript : MonoBehaviour
             temp.g -= 1;
             temp.b -= 1;
 
-            target.transform.localScale -= new Vector3(0.001f, 0.001f, 0);
+            target.transform.localScale -= new Vector3(0.0005f * target.transform.localScale.x, 0.0005f * target.transform.localScale.y, 0);
         }
         
         target.color = temp;
@@ -147,7 +147,7 @@ public class TextBoxScript : MonoBehaviour
             temp.g += 1;
             temp.b += 1;
 
-            target.transform.localScale += new Vector3(0.001f, 0.001f, 0);
+            target.transform.localScale += new Vector3(0.0005f * target.transform.localScale.x, 0.0005f * target.transform.localScale.y, 0);
         }
         target.transform.SetAsLastSibling();
         textboxImage.transform.parent.SetAsLastSibling(); 
