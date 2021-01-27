@@ -36,8 +36,6 @@ public class PouringMinigame : MonoBehaviour{
     void Update(){
         if(MinigameActive)
             RunMinigame();
-        
-        Debug.Log(MinigameCompleted);
     }
 
     private void RunMinigame(){

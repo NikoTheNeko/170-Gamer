@@ -35,8 +35,11 @@ public class SyrupScript : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        if(MinigameActive)
+        if(MinigameActive){
             RunMinigame();
+        } else {
+            StatManager.GetComponent<FoodStats>().UpdateFlavorPreview(0);
+        }
     }
 
     #region Minigame Function
@@ -46,6 +49,8 @@ public class SyrupScript : MonoBehaviour{
     **/
     private void RunMinigame(){
         Instructions.text = "Press space to add Vanilla! To continue press next!";
+
+        StatManager.GetComponent<FoodStats>().UpdateFlavorPreview(StatManager.GetComponent<FoodStats>().FlavorVal + AddAmount);
 
         if(Input.GetButtonDown("Use"))
             StatManager.GetComponent<FoodStats>().AddFlavor(AddAmount);

@@ -164,6 +164,8 @@ public class GrinderMinigame : MonoBehaviour{
     **/
     bool ShowGrounds = false;
     private void GrindBeans(){
+        StatManager.GetComponent<FoodStats>().UpdateTexturePreview(GrindSize * 10);
+
         if(Input.GetButtonDown("Use") && !ValueAdded){
             StatManager.GetComponent<FoodStats>().AddTexture(GrindSize * 10);
             ValueAdded = true;
@@ -198,7 +200,7 @@ public class GrinderMinigame : MonoBehaviour{
     **/
     private void UpdateInstructions(){
         if(MinigameCompleted == false){
-            Instructions.text = "Press left and right to adjust the grind size. Press Space to grind!";
+            Instructions.text = "Press left and right to adjust the grind size.\n Hold Space to grind!";
         } else {
            Instructions.text = "You did it binch! Click Next to move onto the next step!";
         }

@@ -30,9 +30,12 @@ public class FoodStats : MonoBehaviour{
     one stat you have.
     **/
     [Header("UI Elements")]
-    public Text TextureDisplay;
-    public Text WarmthDisplay;
-    public Text FlavorDisplay;
+    public Slider TextureProgress;
+    public Slider TexturePreview;
+    public Slider WarmthProgress;
+    public Slider WarmthPreview;
+    public Slider FlavorProgress;
+    public Slider FlavorPreview;
 
     #endregion
 
@@ -68,20 +71,38 @@ public class FoodStats : MonoBehaviour{
     #endregion
 
     private void Update() {
-        tempDisplay();
+        //tempDisplay();
+        UpdateProgressBars();
     }
 
-    public void tempDisplay(){
-        //This is temp to show off text
-        string TextureText = "Texture: " + TextureVal.ToString() + "/100"; 
-        TextureDisplay.text = TextureText;
+    #region Bar UI
 
-        string WarmthText = "Warmth: " + WarmthVal.ToString() + "/100"; 
-        WarmthDisplay.text = WarmthText;
+    #region Progress Bars
 
-        string FlavorText = "Flavor: " + FlavorVal.ToString() + "/100"; 
-        FlavorDisplay.text = FlavorText;
+    private void UpdateProgressBars(){
+        TextureProgress.value = TextureVal;    
+        WarmthProgress.value = WarmthVal;   
+        FlavorProgress.value = FlavorVal;           
     }
 
+    #endregion
+
+    #region Preview Bars
+
+    public void UpdateTexturePreview(int amount){
+        TexturePreview.value = amount;
+    }
+
+    public void UpdateWarmthPreview(int amount){
+        WarmthPreview.value = amount;
+    }
+
+    public void UpdateFlavorPreview(int amount){
+        FlavorPreview.value = amount;
+    }
+
+    #endregion
+
+    #endregion
 
 }

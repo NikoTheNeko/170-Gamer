@@ -32,8 +32,11 @@ public class MilkMinigame : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
-        if(MinigameActive)
+        if(MinigameActive){
             RunMinigame();
+        } else {
+            StatManager.GetComponent<FoodStats>().UpdateWarmthPreview(0);
+        }
     }
 
     #region Minigame Function
@@ -43,6 +46,8 @@ public class MilkMinigame : MonoBehaviour{
     **/
     private void RunMinigame(){
         Instructions.text = "Press space to add steamed milk! To continue press next!";
+
+        StatManager.GetComponent<FoodStats>().UpdateWarmthPreview(StatManager.GetComponent<FoodStats>().WarmthVal + AddAmount);
 
         if(Input.GetButtonDown("Use"))
             StatManager.GetComponent<FoodStats>().AddWarmth(AddAmount);

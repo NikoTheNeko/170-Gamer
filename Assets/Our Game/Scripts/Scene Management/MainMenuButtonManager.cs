@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuButtonManager : MonoBehaviour{
 
     public void YesIDoTheCooking(){
-        SceneManager.LoadScene("Kitchen but with Tilemaps", LoadSceneMode.Single);
+        SceneManager.LoadScene("Coffee Revamp", LoadSceneMode.Single);
     }
 
     public void GoToSceneExplore(){
