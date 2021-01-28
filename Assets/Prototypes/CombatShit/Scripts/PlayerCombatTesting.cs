@@ -272,7 +272,7 @@ public class PlayerCombatTesting : MonoBehaviour{
         //spawn pellets from gun end point, need to construct prefabs for projectiles
     }
 
-    private void PlayerShootProjectiles_OnShoot(object sender, CharacterAim_Base.OnShootEventArgs e)
+    private void PlayerShootProjectiles_OnShoot(object sender, OnShootEventArgs e)
     {
 
     }
