@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class ShotgunHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static void RayShoot(Vector3 EndPoint, Vector3 ShootDir)
     {
-        
-    }
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(EndPoint, ShootDir);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(raycastHit2D.collider != null)
+        {
+            EnemyBehaviour target = raycastHit2D.collider.GetComponent<EnemyBehaviour>();
+            if(target != null)
+            {
+                target.TakeDamage(5);
+            }
+        }
     }
 }

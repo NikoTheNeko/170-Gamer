@@ -27,7 +27,7 @@ public class EnemyBehaviour : MonoBehaviour {
     public Rigidbody2D rb;
 
     public string enemyState = "idle";
-    private int health = 100;
+    private int health = 1;
     private Vector3 spawnPos;
     public int idleTimer;
     public int walkTimer;

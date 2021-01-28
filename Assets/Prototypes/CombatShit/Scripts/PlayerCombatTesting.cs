@@ -257,7 +257,11 @@ public class PlayerCombatTesting : MonoBehaviour{
     {
         if (Input.GetMouseButtonDown(0))
         {
-            aimGunEndPoint = gunAnchor.Find("Shotgun");
+            aimGunEndPoint = gunAnchor.Find("Shotgun").Find("GunEndPoint");
+            Vector3 shootPoint = aimGunEndPoint.position;
+            Vector3 mousePosition = GetMouseWorldPosition();
+            Vector3 shootDir = (mousePosition - transform.position).normalized;
+            ShotgunHandler.RayShoot(shootPoint, shootDir);
             shotgunAnim.SetTrigger("Shoot");
             OnShoot?.Invoke(this, new OnShootEventArgs
             {
@@ -267,6 +271,12 @@ public class PlayerCombatTesting : MonoBehaviour{
         }
         //spawn pellets from gun end point, need to construct prefabs for projectiles
     }
+
+    private void PlayerShootProjectiles_OnShoot(object sender, CharacterAim_Base.OnShootEventArgs e)
+    {
+
+    }
+    
 
     /**
         Getters and Setters for Can Move
